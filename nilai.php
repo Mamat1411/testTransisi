@@ -24,4 +24,12 @@ $minimum =  array_slice($value,0,7);
 for ($i=0; $i < count($minimum); $i++) { 
     echo $minimum[$i]." ";
 }
+
+//Menentukan 7 nilai maksimum dari array
+rsort($value, SORT_NUMERIC);
+echo "<br>7 Nilai maksimum dari array diatas adalah: ";
+$maximum = array_slice($value,0,7);
+for ($i=0; $i < count($maximum); $i++) { 
+    echo $maximum[$i]." ";
+}
 ?>
