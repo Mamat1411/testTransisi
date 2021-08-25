@@ -17,4 +17,11 @@ echo "<hr>Mengurutkan Nilai Array sebelum ditentukan nilai minimum dan maximum: 
 for ($i=0; $i < count($value); $i++) { 
     echo $value[$i]. " ";
 }
+
+//Menentukan 7 nilai minimum dari array
+echo "<br>7 Nilai minimum dari array diatas adalah: ";
+$minimum =  array_slice($value,0,7);
+for ($i=0; $i < count($minimum); $i++) { 
+    echo $minimum[$i]." ";
+}
 ?>
