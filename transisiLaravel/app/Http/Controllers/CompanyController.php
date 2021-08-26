@@ -47,8 +47,10 @@ class CompanyController extends Controller
             'logo' => 'required|mimes:png,jpg,jpeg|max:2048'
         ]);
 
+        $logo = $request->file('logo');
         $newLogoName = time().'-'.$request->nama.'.png';
-        $request->logo->move(public_path('storage\company'), $newLogoName);
+        // $request->logo->move(public_path('storage\company'), $newLogoName);
+        $logo->storeAs('public/company', $newLogoName);
 
         $companies = DB::select("select * from companies where id = '$request->id' AND nama = '$request->nama' AND email = '$request->email' AND website = '$request->website' AND logo = '$newLogoName'");
         if (count($companies) == !null) {

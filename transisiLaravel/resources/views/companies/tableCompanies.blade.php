@@ -18,7 +18,7 @@
                         <td>{{ $c -> nama }}</td>
                         <td>{{ $c -> email }}</td>
                         <td>{{ $c -> website }}</td>
-                        <td><img src="{{ asset('storage/company/'.$c -> logo) }}" width="100px" height="100px"></td>
+                        <td><img src="{{ Storage::url('public/company/').$c -> logo }}" width="100px" height="100px"></td>
                         <td>
                             <a href="/companies/{{ $c -> id }}/edit" class="btn btn-success">Edit</a>
                             <form action="/companies/{{ $c -> id }}" method="post" class="d-inline">
