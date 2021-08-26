@@ -13,6 +13,11 @@
 
 <div class="container">
     <a href="/companies/create" class="btn btn-success">Tambahkan Data Perusahaan</a>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
     @yield('tableCompanies')
 </div>
