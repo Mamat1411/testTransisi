@@ -14,9 +14,9 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->integer('id', 10)->primary();
+            $table->integer('id', 10);
             $table->string('nama', 50);
-            $table->integer('idCompany', 10)->foreign()->reference('id')->on('companies');
+            $table->integer('idCompany')->foreign()->reference('id')->on('companies');
             $table->string('email', 100)->unique();
         });
     }
