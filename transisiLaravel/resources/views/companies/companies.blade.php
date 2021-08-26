@@ -14,7 +14,7 @@
 <div class="container">
     <a href="/companies/create" class="btn btn-success">Tambahkan Data Perusahaan</a>
     @if (session('status'))
-        <div class="alert alert-success">
+        <div class="alert alert-success my-3">
             {{ session('status') }}
         </div>
     @endif

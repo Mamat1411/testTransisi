@@ -44,7 +44,7 @@ class CompanyController extends Controller
             'nama' => 'required',
             'email' => 'required',
             'website' => 'required',
-            'logo' => 'required|mimes:png,jpg,jpeg|max:2048'
+            'logo' => 'required|mimes:png|max:2048'
         ]);
 
         $logo = $request->file('logo');
@@ -87,7 +87,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('companies/editCompanies');
+        return view('companies/editCompanies', compact('company'));
     }
 
     /**
@@ -99,7 +99,40 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $request -> validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'website' => 'required',
+            'logo' => 'mimes:png|max:2048'
+        ]);
+
+        $companies = Company::findOrFail($company->id);
+
+        if ($request->file('logo') == "") {
+            Company::where('id', $company->id)
+                    ->update([
+                        'nama' => $request -> nama,
+                        'email' => $request -> email,
+                        'website' => $request -> website
+                    ]);
+            return redirect('/companies') -> with('status', 'Data Berhasil Diubah');
+        } else {
+            Storage::disk('local')->delete('public/company'.$companies->logo);
+
+            $logo = $request->file('logo');
+            $newLogoName = time().'-'.$request->nama.'.png';
+            $logo->storeAs('public/company', $newLogoName);
+
+            Company::where('id', $company->id)
+                    ->update([
+                        'nama' => $request -> nama,
+                        'email' => $request -> email,
+                        'website' => $request -> website,
+                        'logo' => $newLogoName
+                    ]);
+            return redirect('/companies') -> with('status', 'Data Berhasil Diubah');
+        }
+        
     }
 
     /**
@@ -113,6 +146,6 @@ class CompanyController extends Controller
         $companies = Company::findOrFail($company->id);
         Storage::disk('local')->delete('public/company/'.$companies->logo);
         $companies->delete();
-        return redirect()->with(['status' => 'Data Berhasil Dihapus!']);
+        return redirect('/companies') -> with('status', 'Data Berhasil Dihapus!');
     }
 }

@@ -20,18 +20,19 @@ Route::get('/', function () {
 //Route of Companies Homepage
 Route::get('/companies', 'CompanyController@index');
 //Routes of Companies CRUD Operations
-Route::get('/companies/create', 'CompanyController@create');
-Route::post('/companies', 'CompanyController@store');
-Route::delete('/companies/{companies}', 'CompanyController@destroy');
-Route::get('/companies/{companies}/edit', 'CompanyController@edit');
-Route::patch('/companies/{companies}', 'CompanyController@update');
+// Route::get('/companies/create', 'CompanyController@create');
+// Route::post('/companies', 'CompanyController@store');
+// Route::delete('/companies/{companies}', 'CompanyController@destroy');
+// Route::get('/companies/{companies}/edit', 'CompanyController@edit');
+// Route::patch('/companies/{companies}', 'CompanyController@update');
+Route::resource('companies', "CompanyController");
 
 //Route of Employees Homepage
 Route::get('/employees', 'EmployeeController@index');
 //Route of Employees CRUD Operations
-Route::get('/employees/create', 'EmployeeController@create');
-Route::post('/employees', 'EmployeeController@store');
-Route::delete('/employees/{employees}', 'EmployeeController@destroy');
-Route::get('/employees/{employees}/edit', 'EmployeeController@edit');
-Route::patch('/employees/{employees}', 'EmployeeController@update');
-
+// Route::get('/employees/create', 'EmployeeController@create');
+// Route::post('/employees', 'EmployeeController@store');
+// Route::delete('/employees/{employees}', 'EmployeeController@destroy');
+// Route::get('/employees/{employees}/edit', 'EmployeeController@edit');
+// Route::patch('/employees/{employees}', 'EmployeeController@update');
+Route::resource('employees', 'EmployeeController');

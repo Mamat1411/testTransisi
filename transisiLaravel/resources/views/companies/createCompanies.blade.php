@@ -49,7 +49,7 @@
                         <label for="logo">Logo Perusahaan</label>
                     </td>
                     <td>
-                        <input type="file" name="logo" id="logo" class="form-control" placeholder="Isi logo Perusahaan" required>
+                        <input type="file" name="logo" id="logo" class="form-control" required>
                     </td>
                 </tr>
             </tbody>

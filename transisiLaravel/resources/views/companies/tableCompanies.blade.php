@@ -21,9 +21,10 @@
                         <td><img src="{{ Storage::url('public/company/').$c -> logo }}" width="100px" height="100px"></td>
                         <td>
                             <a href="/companies/{{ $c -> id }}/edit" class="btn btn-success">Edit</a>
-                            <form action="/companies/{{ $c -> id }}" method="post" class="d-inline">
+                            <form action="/companies/{{ $c -> id }}" method="POST" class="d-inline">
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>                            
                             </form>
                         </td>
                     </tr>
