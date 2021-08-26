@@ -9,21 +9,22 @@
 </head>
 <body>
     <div class="wrapper">
-        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">primary</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-                    aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarID">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        
-                    </div>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">primary</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+                        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-            </div>
-        </nav>
+            </nav>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li><a href="">Beranda</a></li>
+            <li><a href="">Data Perusahaan</a></li>
+            <li><a href="">Data Karyawan</a></li>
+        </ul>
     </div>
     @yield('container')
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
