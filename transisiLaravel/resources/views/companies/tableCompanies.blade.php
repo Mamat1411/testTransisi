@@ -22,6 +22,7 @@
                         <td>
                             <a href="/companies/{{ $c -> id }}/edit" class="btn btn-success">Edit</a>
                             <form action="/companies/{{ $c -> id }}" method="post" class="d-inline">
+                                @method('delete')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>

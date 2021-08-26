@@ -110,7 +110,7 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        $companies = Company::findOrFail($company);
+        $companies = Company::findOrFail($company->id);
         Storage::disk('local')->delete('public/company/'.$companies->logo);
         $companies->delete();
         return redirect()->with(['status' => 'Data Berhasil Dihapus!']);
