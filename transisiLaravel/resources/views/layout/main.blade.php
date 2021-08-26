@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="wrapper">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">primary</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-                        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-            </nav>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">primary</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+                    aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
     </div>
     <div class="sidebar">
         <ul>
