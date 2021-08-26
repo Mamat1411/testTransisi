@@ -12,5 +12,7 @@
 
 <div class="container">
     <a href="/companies/create" class="btn btn-success">Tambahkan Data Perusahaan</a>
+
+    @yield('tableCompanies')
 </div>
 @endsection
