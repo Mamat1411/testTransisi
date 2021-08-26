@@ -12,11 +12,9 @@
     <div class="wrapper">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Transisi</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-                    aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand" href="#">
+                    <img height="50px" width="90px" src="{{ asset ('images/index.jpg')}}" alt="Logo Transisi">
+                </a>
             </div>
         </nav>
     </div>
