@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset ('/css/app.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ URL::asset ('/css/style.css') }}" type="text/css">
     <title>@yield('title')</title>
 </head>
 <body>
@@ -22,9 +22,9 @@
     </div>
     <div class="sidebar">
         <ul>
-            <li><a href="" class="text-decoration-none">Beranda</a></li>
-            <li><a href="" class="text-decoration-none">Data Perusahaan</a></li>
-            <li><a href="" class="text-decoration-none">Data Karyawan</a></li>
+            <li><a href="" class="text-decoration-none"><b>Beranda</b></a></li>
+            <li><a href="" class="text-decoration-none"><b>Data Perusahaan</b></a></li>
+            <li><a href="" class="text-decoration-none"><b>Data Karyawan</b></a></li>
         </ul>
     </div>
     @yield('container')
