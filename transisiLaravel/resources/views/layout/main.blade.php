@@ -22,9 +22,9 @@
     </div>
     <div class="sidebar">
         <ul>
-            <li><a href="" class="text-decoration-none"><b>Beranda</b></a></li>
-            <li><a href="" class="text-decoration-none"><b>Data Perusahaan</b></a></li>
-            <li><a href="" class="text-decoration-none"><b>Data Karyawan</b></a></li>
+            <li><a href="/" class="text-decoration-none"><b>Beranda</b></a></li>
+            <li><a href="{{ url('/companies') }}" class="text-decoration-none"><b>Data Perusahaan</b></a></li>
+            <li><a href="{{ url('/employees') }}" class="text-decoration-none"><b>Data Karyawan</b></a></li>
         </ul>
     </div>
     @yield('container')
