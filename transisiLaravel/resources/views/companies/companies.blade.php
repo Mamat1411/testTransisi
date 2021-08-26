@@ -1,4 +1,5 @@
-@extends('../layout/main')
+@extends('layout/main')
+@include('companies.tableCompanies')
 @section('title', 'Data Perusahaan')
 
 @section('container')

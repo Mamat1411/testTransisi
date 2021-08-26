@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CompanyController extends Controller
 {
@@ -14,7 +15,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('companies/companies');
+        $companies = Company::all();
+        $companies = Company::paginate(5);
+        return view('companies/companies', compact('companies'));
     }
 
     /**
@@ -35,7 +38,22 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'id' => 'required',
+            'nama' => 'required',
+            'email' => 'required',
+            'website' => 'required',
+            'logo' => 'required'
+        ]);
+
+        $companies = DB::select("select * from companies where id = '$request->id' AND nama = '$request->nama' AND email = '$request->email, AND website = '$request->website, AND logo = '$request->logo'");
+        if (count($companies) == !null) {
+            return redirect('/companies') -> with('status', 'Data Sudah Pernah Ditambahkan');
+        } else {
+            Company::create($request->all());
+            return redirect('/companies') -> with('status', 'Data Perusahaan Berhasil Ditambahkan');
+        }
+        
     }
 
     /**
