@@ -17,8 +17,17 @@ Route::get('/', function () {
     return view('index');
 });
 
+//Route of Login
+// Route::get('/login', 'LoginController@login')->name('login');
+// Route::post('/postlogin', 'LoginController@postlogin');
+// Route::get('/logout', 'LoginController@logout');
+
 //Route of Companies Homepage
 Route::get('/companies', 'CompanyController@index');
+
+//Route of Employees Homepage
+Route::get('/employees', 'EmployeeController@index');
+
 //Routes of Companies CRUD Operations
 // Route::get('/companies/create', 'CompanyController@create');
 // Route::post('/companies', 'CompanyController@store');
@@ -27,12 +36,14 @@ Route::get('/companies', 'CompanyController@index');
 // Route::patch('/companies/{companies}', 'CompanyController@update');
 Route::resource('companies', "CompanyController");
 
-//Route of Employees Homepage
-Route::get('/employees', 'EmployeeController@index');
 //Route of Employees CRUD Operations
 // Route::get('/employees/create', 'EmployeeController@create');
 // Route::post('/employees', 'EmployeeController@store');
 // Route::delete('/employees/{employees}', 'EmployeeController@destroy');
 // Route::get('/employees/{employees}/edit', 'EmployeeController@edit');
 // Route::patch('/employees/{employees}', 'EmployeeController@update');
-Route::resource('employees', 'EmployeeController');
+Route::resource('employees', 'EmployeeController');    
+
+// Route::middleware(['auth', 'checkEmail:admin@transisi.id'])->group(function () {
+// });
+

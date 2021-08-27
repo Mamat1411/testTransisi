@@ -5,7 +5,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Perusahaan</th>
+                    <th>ID Perusahaan</th>
                     <th>Email</th>
                     <th>Aksi</th>
                 </tr>

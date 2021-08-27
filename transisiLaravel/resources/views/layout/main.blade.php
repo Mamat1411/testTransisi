@@ -23,6 +23,11 @@
             <li><a href="/" class="text-decoration-none"><b>Beranda</b></a></li>
             <li><a href="{{ url('/companies') }}" class="text-decoration-none"><b>Data Perusahaan</b></a></li>
             <li><a href="{{ url('/employees') }}" class="text-decoration-none"><b>Data Karyawan</b></a></li>
+            {{-- @if (auth()->user()->email == 'admin@transisi.id')
+            <li><a href="{{ url('/Logout') }}" class="text-decoration-none"><b>Logout</b></a></li>                                
+            @else
+            <li><a href="{{ url('/login') }}" class="text-decoration-none"><b>Login</b></a></li>                
+            @endif --}}
         </ul>
     </div>
     @yield('container')
