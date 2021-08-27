@@ -18,7 +18,8 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
         $employees = Employee::paginate(5);
-        return view('employees.employees', compact('employees'));
+        $company = Company::with('company')->get();
+        return view('employees.employees', compact('employees'), compact('company'));
     }
 
     /**

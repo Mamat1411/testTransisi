@@ -10,5 +10,8 @@ class Company extends Model
     protected $table = "companies";
     protected $fillable = ['id', 'nama', 'email', 'logo', 'website'];
     public $timestamps = false;
-    use HasFactory;
+
+    public function company(){
+        return $this->belongsTo(Employee::class);
+    }
 }
