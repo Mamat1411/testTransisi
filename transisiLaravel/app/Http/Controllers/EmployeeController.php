@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +16,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::all();
+        $employees = Employee::paginate(5);
+        return view('employees.employees', compact('employees'));
     }
 
     /**
@@ -24,7 +28,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $company = Company::with('company')->get();
+        return view('employees.createEmployees', compact('company'));
     }
 
     /**
@@ -35,7 +40,21 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'id' => 'required',
+            'nama' => 'required',
+            'idCompany' => 'required',
+            'email' => 'required'
+        ]);
+
+        $employees = DB::select("select * from employees where id = '$request->id' AND email = '$request->email'");
+        if (count($employees) == !null) {
+            return redirect('/employees') -> with('status', 'Data Sudah Pernah Ditambahkan');
+        } else {
+            Employee::create($request->all());
+            return redirect('/employees') -> with('status', 'Data Berhasil Ditambahkan');
+        }
+        
     }
 
     /**
@@ -57,7 +76,8 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        $company = Company::with('company')->get();
+        return view('employees/editEmployees', compact('employee'), compact('company'));
     }
 
     /**
@@ -69,7 +89,24 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $request -> validate([
+            'nama' => 'required',
+            'idCompany' => 'required',
+            'email' => 'required'
+        ]);
+
+        $employees = DB::select("select * from employees where id = '$request->id' AND email = '$request->email'");
+        if (count($employees) == !null) {
+            return redirect('/employees') -> with('status', 'Data Sudah Pernah Ditambahkan');
+        } else {
+            Employee::where('id', $employee -> id)
+                    ->update([
+                        'nama' => $request -> nama,
+                        'idCompany' => $request -> idCompany,
+                        'email' => $request -> email
+                    ]);
+            return redirect('/employees') -> with('status', 'Data Berhasil Diubah');
+        }
     }
 
     /**
@@ -80,6 +117,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        Employee::destroy($employee -> id);
+        return redirect('/companies') -> with('status', 'Data Berhasil Dihapus');
     }
 }
