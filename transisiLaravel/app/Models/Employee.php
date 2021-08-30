@@ -12,6 +12,6 @@ class Employee extends Model
     public $timestamps = false;
 
     public function employee(){
-        return $this->hasMany(Company::class);
+        return $this->hasOne(Company::class);
     }
 }
